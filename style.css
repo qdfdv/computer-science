@@ -1,57 +1,53 @@
-/* General page styling */
 body {
   font-family: Arial, sans-serif;
-  background-color: #eef2f5;
+  background-color: #f0f4f8;
   margin: 0;
-  padding: 0;
 }
 
-/* Header styling */
 header {
-  background-color: #1e3a5f;
+  background-color: #243a5e;
   color: white;
   padding: 20px;
   text-align: center;
 }
 
-/* Content sections */
 section {
-  background-color: white;
+  background: white;
   margin: 20px;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
-/* Headings */
 h2 {
-  color: #1e3a5f;
+  color: #243a5e;
 }
 
-/* Buttons */
 button {
   padding: 10px 15px;
   margin: 5px;
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
 }
 
-/* Button hover effect */
 button:hover {
   background-color: #0056b3;
 }
 
-/* Output text */
 .output {
   margin-top: 10px;
   font-weight: bold;
 }
 
-/* Footer */
+.score {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
 footer {
   text-align: center;
-  padding: 10px;
+  padding: 15px;
   color: gray;
 }
