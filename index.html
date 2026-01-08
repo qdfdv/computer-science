@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Interactive Internet & Cloud Project</title>
+  <title>Interactive Web Technologies</title>
 
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
@@ -12,15 +12,13 @@
 
 <header>
   <h1>Interactive Web Technologies Project</h1>
-  <p>Internet • Data Transmission • Cloud Computing</p>
+  <p>Internet • Cloud • Data Transmission</p>
 </header>
 
 <section>
   <h2>Internet Technologies</h2>
-  <p>Click the buttons to learn how the internet works.</p>
-
-  <button onclick="showDNS()">What is DNS?</button>
-  <button onclick="showBroadband()">What is Broadband?</button>
+  <button onclick="showDNS()">Explain DNS</button>
+  <button onclick="showBroadband()">Explain Broadband</button>
   <button onclick="showPacket()">How Data Travels</button>
 
   <div id="internetOutput" class="output"></div>
@@ -28,9 +26,7 @@
 
 <section>
   <h2>Cloud Computing</h2>
-  <p>Learn how cloud computing is different from traditional storage.</p>
-
-  <button onclick="showCloud()">Explain Cloud Storage</button>
+  <button onclick="showCloud()">Cloud Storage</button>
   <button onclick="showClientServer()">Client vs Server</button>
 
   <div id="cloudOutput" class="output"></div>
@@ -38,38 +34,30 @@
 
 <section>
   <h2>Data Transmission</h2>
-  <p>Understand how devices communicate and avoid errors.</p>
-
   <button onclick="showDuplex()">Transmission Types</button>
   <button onclick="showErrorCheck()">Error Checking</button>
 
   <pre>
-Computer A ⇄ Router ⇄ Internet ⇄ Server
+Computer ⇄ Router ⇄ Internet ⇄ Server
   </pre>
 
   <div id="dataOutput" class="output"></div>
 </section>
 
 <section>
-  <h2>📨 Error Checking Simulation</h2>
-  <input type="text" id="dataInput" placeholder="Enter message">
-  <button onclick="sendData()">Send Data</button>
-</section>
-
-<section>
-  <h2>🎮 Mini-Game: Internet Trivia</h2>
+  <h2>🎮 Internet Trivia Game</h2>
   <p id="question"></p>
 
-  <button onclick="answerQuestion(0)" id="a1"></button>
-  <button onclick="answerQuestion(1)" id="a2"></button>
-  <button onclick="answerQuestion(2)" id="a3"></button>
+  <button onclick="answerQuestion(0)" id="btn1"></button>
+  <button onclick="answerQuestion(1)" id="btn2"></button>
+  <button onclick="answerQuestion(2)" id="btn3"></button>
 
-  <p class="score">Score: <span id="score">0</span></p>
+  <p>Score: <span id="score">0</span></p>
   <p id="gameFeedback" class="output"></p>
 </section>
 
 <footer>
-  <p>Student Web Project © 2026</p>
+  Student Project © 2026
 </footer>
 
 </body>
