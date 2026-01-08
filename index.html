@@ -3,37 +3,183 @@
 <head>
   <meta charset="UTF-8">
   <title>Interactive Web Technologies</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      line-height: 1.6;
+      color: #333;
+    }
 
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+    /* Header */
+    header {
+      background-color: #243a5e;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2em;
+    }
+
+    header p {
+      font-size: 1.1em;
+      margin-top: 5px;
+    }
+
+    /* Sections */
+    section {
+      background: white;
+      margin: 20px auto;
+      padding: 25px;
+      border-radius: 12px;
+      max-width: 900px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+    }
+
+    section:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    section h2 {
+      color: #243a5e;
+      margin-bottom: 15px;
+    }
+
+    /* Buttons */
+    button {
+      padding: 12px 18px;
+      margin: 5px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.95em;
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    /* Output Boxes */
+    .output {
+      margin-top: 15px;
+      padding: 12px;
+      background-color: #e9f1ff;
+      border-left: 4px solid #007bff;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    /* Fun Fact Popup */
+    .fun-fact {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #fffae6;
+      color: #a67c00;
+      border: 1px solid #ffd700;
+      border-radius: 6px;
+      padding: 10px 15px;
+      font-size: 0.9em;
+      display: none;
+      z-index: 10;
+      width: 200px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .fun-fact.show {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    /* Preformatted Data Flow */
+    pre {
+      background-color: #f3f6f9;
+      padding: 12px;
+      border-left: 4px solid #243a5e;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+
+    /* Trivia Game */
+    #question {
+      font-size: 1.1em;
+      margin: 15px 0;
+    }
+
+    #gameFeedback {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 15px 10px;
+      color: #666;
+      font-size: 0.9em;
+      border-top: 1px solid #ccc;
+      background-color: #f0f4f8;
+    }
+  </style>
 </head>
-
 <body>
 
 <header>
-  <h1>Interactive Web Technologies Project</h1>
-  <p>Internet • Cloud • Data Transmission</p>
+  <h1>Interactive Web Technologies</h1>
+  <p>Explore Internet, Cloud Computing, and Data Transmission</p>
 </header>
 
 <section>
   <h2>Internet Technologies</h2>
+  <p>The internet is a global network connecting millions of computers and devices. It allows information sharing and communication worldwide.</p>
+
   <button onclick="showDNS()">Explain DNS</button>
   <button onclick="showBroadband()">Explain Broadband</button>
   <button onclick="showPacket()">How Data Travels</button>
 
   <div id="internetOutput" class="output"></div>
+
+  <div id="funInternet" class="fun-fact">Fun Fact: The first website went online in 1991!</div>
 </section>
 
 <section>
   <h2>Cloud Computing</h2>
+  <p>Cloud computing allows storage and access to data over the internet instead of local devices. It enables collaboration and remote access.</p>
+
   <button onclick="showCloud()">Cloud Storage</button>
   <button onclick="showClientServer()">Client vs Server</button>
 
   <div id="cloudOutput" class="output"></div>
+
+  <div id="funCloud" class="fun-fact">Fun Fact: Cloud computing powers Gmail, Netflix, and Spotify!</div>
 </section>
 
 <section>
   <h2>Data Transmission</h2>
+  <p>Data transmission is the movement of information between devices through wired or wireless networks. Reliability and speed are essential.</p>
+
   <button onclick="showDuplex()">Transmission Types</button>
   <button onclick="showErrorCheck()">Error Checking</button>
 
@@ -42,10 +188,14 @@ Computer ⇄ Router ⇄ Internet ⇄ Server
   </pre>
 
   <div id="dataOutput" class="output"></div>
+
+  <div id="funData" class="fun-fact">Fun Fact: Data travels nearly at the speed of light in fiber optic cables!</div>
 </section>
 
 <section>
   <h2>🎮 Internet Trivia Game</h2>
+  <p>Test your knowledge and learn fun facts!</p>
+
   <p id="question"></p>
 
   <button onclick="answerQuestion(0)" id="btn1"></button>
@@ -57,8 +207,111 @@ Computer ⇄ Router ⇄ Internet ⇄ Server
 </section>
 
 <footer>
-  Student Project © 2026
+  Student Project © 2026 | Created for Learning Purposes
 </footer>
+
+<script>
+/* ========== INTERNET TECHNOLOGY ========== */
+function showDNS() {
+  document.getElementById("internetOutput").innerText =
+    "🌐 DNS translates website names like 'example.com' into IP addresses so computers can locate servers.";
+  toggleFun('funInternet');
+}
+function showBroadband() {
+  document.getElementById("internetOutput").innerText =
+    "⚡ Broadband is a high-speed internet connection (fiber, cable, or DSL) for fast downloads and streaming.";
+  toggleFun('funInternet');
+}
+function showPacket() {
+  document.getElementById("internetOutput").innerText =
+    "📦 Data travels in packets through routers to the server. Each packet may take a different route!";
+  toggleFun('funInternet');
+}
+
+/* ========== CLOUD COMPUTING ========== */
+function showCloud() {
+  document.getElementById("cloudOutput").innerText =
+    "☁️ Cloud storage saves your data on remote servers, accessible from any device.";
+  toggleFun('funCloud');
+}
+function showClientServer() {
+  document.getElementById("cloudOutput").innerText =
+    "🖥️ Client vs Server: Your device requests info (client), server responds with data/services.";
+  toggleFun('funCloud');
+}
+
+/* ========== DATA TRANSMISSION ========== */
+function showDuplex() {
+  document.getElementById("dataOutput").innerText =
+    "🔄 Full-duplex allows simultaneous sending and receiving; half-duplex only one direction at a time.";
+  toggleFun('funData');
+}
+function showErrorCheck() {
+  document.getElementById("dataOutput").innerText =
+    "✅ Error checking (like checksums) ensures data isn’t corrupted during transmission.";
+  toggleFun('funData');
+}
+
+/* ========== MINI-GAME ========== */
+let questions = [
+  { q: "What does DNS do?", a:["Stores files","Translates domain names","Blocks viruses"], correct:1 },
+  { q: "Which is cloud storage?", a:["USB","Hard disk","Google Drive"], correct:2 },
+  { q: "Which transmission allows two-way communication?", a:["Simplex","Half-duplex","Full-duplex"], correct:2 },
+  { q: "What is broadband?", a:["A slow connection","A high-speed internet connection","A type of server"], correct:1 },
+  { q: "What ensures data isn't corrupted?", a:["Error checking","Routers","Firewalls"], correct:0 }
+];
+
+let current = 0, score = 0;
+
+function loadQuestion() {
+  if(current<questions.length){
+    document.getElementById("question").innerText = questions[current].q;
+    document.getElementById("btn1").innerText = questions[current].a[0];
+    document.getElementById("btn2").innerText = questions[current].a[1];
+    document.getElementById("btn3").innerText = questions[current].a[2];
+    document.getElementById("gameFeedback").innerText = "";
+  }
+}
+
+function answerQuestion(choice){
+  if(current>=questions.length) return;
+
+  if(choice === questions[current].correct){
+    score++;
+    document.getElementById("gameFeedback").innerText = "✅ Correct!";
+    document.getElementById("gameFeedback").style.color = "#28a745";
+  } else {
+    document.getElementById("gameFeedback").innerText = 
+      `❌ Incorrect! Correct: ${questions[current].a[questions[current].correct]}`;
+    document.getElementById("gameFeedback").style.color = "#dc3545";
+  }
+
+  document.getElementById("score").innerText = score;
+  current++;
+
+  setTimeout(loadQuestion,1000);
+
+  if(current===questions.length){
+    setTimeout(()=>{
+      document.getElementById("question").innerText =
+        `🎉 Game Over! Final Score: ${score}/${questions.length}`;
+      document.getElementById("btn1").innerText="";
+      document.getElementById("btn2").innerText="";
+      document.getElementById("btn3").innerText="";
+      document.getElementById("gameFeedback").innerText="Refresh to play again!";
+    },1200);
+  }
+}
+
+loadQuestion();
+
+/* ========== FUN FACTS ========== */
+function toggleFun(id){
+  const fact = document.getElementById(id);
+  fact.classList.add('show');
+  setTimeout(()=>{fact.classList.remove('show');},4000);
+}
+</script>
 
 </body>
 </html>
