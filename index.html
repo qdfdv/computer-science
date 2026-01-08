@@ -2,149 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Interactive Web Technologies Project</title>
+  <title>Interactive Internet & Cloud Project</title>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #eef2f5;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background-color: #1e3a5f;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-
-    section {
-      background: white;
-      margin: 20px;
-      padding: 20px;
-      border-radius: 8px;
-    }
-
-    h2 {
-      color: #1e3a5f;
-    }
-
-    button {
-      padding: 10px 15px;
-      margin: 5px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #0056b3;
-    }
-
-    .output {
-      margin-top: 10px;
-      font-weight: bold;
-      color: #333;
-    }
-
-    footer {
-      text-align: center;
-      padding: 10px;
-      color: gray;
-    }
-  </style>
-
-  <script>
-    /* Explanation Buttons */
-    function explainDNS() {
-      document.getElementById("dnsOutput").innerText =
-        "DNS converts a website name (URL) into an IP address so your browser can find the correct server.";
-    }
-
-    function explainCloud() {
-      document.getElementById("cloudOutput").innerText =
-        "Cloud storage saves data on remote servers accessed via the internet, unlike traditional storage which is local.";
-    }
-
-    function explainDuplex() {
-      document.getElementById("duplexOutput").innerText =
-        "Full-duplex transmission allows sending and receiving data at the same time, like a phone call.";
-    }
-
-    /* Error Checking Example */
-    function sendData() {
-      let data = document.getElementById("data").value;
-      if (data === "") {
-        alert("Transmission Error: No data entered!");
-      } else {
-        alert("Data transmitted successfully with no errors!");
-      }
-    }
-
-    /* Mini-Game (Quiz) */
-    function checkAnswer(answer) {
-      if (answer === "dns") {
-        document.getElementById("gameOutput").innerText =
-          "✅ Correct! DNS translates domain names into IP addresses.";
-      } else {
-        document.getElementById("gameOutput").innerText =
-          "❌ Incorrect. Try again!";
-      }
-    }
-  </script>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 
 <body>
 
 <header>
-  <h1>Interactive Web Application</h1>
-  <p>Internet Technologies • Data Transmission • Cloud Computing</p>
+  <h1>Interactive Web Technologies Project</h1>
+  <p>Internet • Data Transmission • Cloud Computing</p>
 </header>
 
 <section>
-  <h2>Internet Technology: DNS</h2>
-  <p>Click the button to learn how DNS works.</p>
-  <button onclick="explainDNS()">Explain DNS</button>
-  <div id="dnsOutput" class="output"></div>
+  <h2>Internet Technologies</h2>
+  <p>Click the buttons to learn how the internet works.</p>
+
+  <button onclick="showDNS()">What is DNS?</button>
+  <button onclick="showBroadband()">What is Broadband?</button>
+  <button onclick="showPacket()">How Data Travels</button>
+
+  <div id="internetOutput" class="output"></div>
 </section>
 
 <section>
   <h2>Cloud Computing</h2>
-  <p>Click to see the difference between cloud and traditional storage.</p>
-  <button onclick="explainCloud()">Explain Cloud Storage</button>
+  <p>Learn how cloud computing is different from traditional storage.</p>
+
+  <button onclick="showCloud()">Explain Cloud Storage</button>
+  <button onclick="showClientServer()">Client vs Server</button>
+
   <div id="cloudOutput" class="output"></div>
 </section>
 
 <section>
   <h2>Data Transmission</h2>
-  <p>Learn about communication methods.</p>
-  <button onclick="explainDuplex()">Explain Full-Duplex</button>
-  <div id="duplexOutput" class="output"></div>
+  <p>Understand how devices communicate and avoid errors.</p>
+
+  <button onclick="showDuplex()">Transmission Types</button>
+  <button onclick="showErrorCheck()">Error Checking</button>
 
   <pre>
-Computer A ⇄ Internet ⇄ Computer B
+Computer A ⇄ Router ⇄ Internet ⇄ Server
   </pre>
+
+  <div id="dataOutput" class="output"></div>
 </section>
 
 <section>
-  <h2>Error Checking Simulation</h2>
-  <input type="text" id="data" placeholder="Enter data here">
-  <br><br>
+  <h2>📨 Error Checking Simulation</h2>
+  <input type="text" id="dataInput" placeholder="Enter message">
   <button onclick="sendData()">Send Data</button>
 </section>
 
 <section>
-  <h2>🎮 Mini-Game: Internet Quiz</h2>
-  <p>Which technology translates a website name into an IP address?</p>
+  <h2>🎮 Mini-Game: Internet Trivia</h2>
+  <p id="question"></p>
 
-  <button onclick="checkAnswer('usb')">USB</button>
-  <button onclick="checkAnswer('dns')">DNS</button>
-  <button onclick="checkAnswer('cloud')">Cloud Storage</button>
+  <button onclick="answerQuestion(0)" id="a1"></button>
+  <button onclick="answerQuestion(1)" id="a2"></button>
+  <button onclick="answerQuestion(2)" id="a3"></button>
 
-  <div id="gameOutput" class="output"></div>
+  <p class="score">Score: <span id="score">0</span></p>
+  <p id="gameFeedback" class="output"></p>
 </section>
 
 <footer>
