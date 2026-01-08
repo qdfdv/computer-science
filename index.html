@@ -10,12 +10,21 @@
 
 <header>
   <h1>Interactive Web Technologies</h1>
-  <p>Explore Internet, Cloud Computing, and Data Transmission</p>
+  <p>Explore Internet, Cloud Computing, and Data Transmission in depth</p>
 </header>
 
 <section>
   <h2>Internet Technologies</h2>
-  <p>The internet connects millions of devices worldwide. It allows people to communicate, share information, and access websites, videos, and applications instantly. Learning how it works helps us understand DNS, broadband, and how data travels across networks.</p>
+
+  <p>The internet is a global system of interconnected networks that allows millions of devices to communicate. It enables websites, email, social media, online gaming, and cloud services. Understanding how it works helps us use it more safely and efficiently.</p>
+
+  <p><strong>DNS (Domain Name System):</strong> DNS translates human-readable website addresses like <em>example.com</em> into IP addresses that computers use to locate servers. Without DNS, users would have to remember long numeric IP addresses for every site.</p>
+
+  <p><strong>Broadband:</strong> Broadband is a high-speed internet connection, such as fiber optic, cable, or DSL. It allows fast downloads, streaming, video calls, and online gaming. The faster the connection, the smoother your online experience.</p>
+
+  <p><strong>Data Travel:</strong> Data is sent over the internet in small packets. These packets travel through routers and switches, sometimes taking different paths, and are reassembled at the destination. This is how websites load and videos stream.</p>
+
+  <p><strong>Security & Reliability:</strong> Data over the internet can be intercepted, so technologies like HTTPS, firewalls, and VPNs protect information. Redundancy and error checking ensure data is delivered correctly.</p>
 
   <button onclick="showDNS()">Explain DNS</button>
   <button onclick="showBroadband()">Explain Broadband</button>
@@ -27,7 +36,16 @@
 
 <section>
   <h2>Cloud Computing</h2>
-  <p>Cloud computing allows storing and accessing data on remote servers instead of local devices. This technology makes collaboration easy, enables access from any device, and powers services like Google Drive, Dropbox, and streaming platforms.</p>
+
+  <p>Cloud computing allows you to store, manage, and process data on remote servers accessed over the internet instead of your local computer. This enables collaboration, remote access, and scalability.</p>
+
+  <p><strong>Cloud Storage:</strong> Services like Google Drive, Dropbox, and OneDrive allow users to save files online. Files can be accessed from anywhere, shared with others, and automatically synced across devices.</p>
+
+  <p><strong>Client vs Server:</strong> Your device (client) requests data, while a cloud server responds. Servers are powerful machines that can handle thousands of requests simultaneously, allowing multiple users to access data at the same time.</p>
+
+  <p><strong>Advantages:</strong> Cloud computing reduces the need for local storage, allows remote work, simplifies backups, and can scale resources up or down based on demand. It is used by companies for applications, databases, and online services.</p>
+
+  <p><strong>Security Considerations:</strong> Cloud data is protected using encryption, authentication, and access controls. Users should also choose strong passwords and enable two-factor authentication.</p>
 
   <button onclick="showCloud()">Cloud Storage</button>
   <button onclick="showClientServer()">Client vs Server</button>
@@ -38,14 +56,27 @@
 
 <section>
   <h2>Data Transmission</h2>
-  <p>Data transmission is the movement of information between devices. It can happen through wired cables, fiber optics, or wireless signals. Reliable transmission is critical to ensure that data arrives safely and quickly, without corruption.</p>
 
-  <button onclick="showDuplex()">Transmission Types</button>
-  <button onclick="showErrorCheck()">Error Checking</button>
+  <p>Data transmission is the process of sending digital information between devices. It can happen through wired connections, fiber optics, or wireless signals like Wi-Fi and mobile networks.</p>
+
+  <p><strong>Transmission Types:</strong> There are three main types:
+    <ul>
+      <li><strong>Simplex:</strong> Data moves in one direction only.</li>
+      <li><strong>Half-Duplex:</strong> Data moves in both directions but not at the same time.</li>
+      <li><strong>Full-Duplex:</strong> Data moves in both directions simultaneously, which is faster and more efficient.</li>
+    </ul>
+  </p>
+
+  <p><strong>Error Checking:</strong> When data is transmitted, errors can occur. Methods like parity bits, checksums, and CRC (Cyclic Redundancy Check) ensure that the received data matches the original data.</p>
+
+  <p><strong>Reliability and Speed:</strong> Transmission speed depends on the medium (fiber is fastest), network congestion, and hardware. Reliability ensures data is delivered without loss or corruption.</p>
 
   <pre>
 Computer ⇄ Router ⇄ Internet ⇄ Server
   </pre>
+
+  <button onclick="showDuplex()">Transmission Types</button>
+  <button onclick="showErrorCheck()">Error Checking</button>
 
   <div id="dataOutput" class="output"></div>
   <div id="funData" class="fun-fact">Fun Fact: Data travels nearly at the speed of light in fiber optic cables!</div>
@@ -53,7 +84,8 @@ Computer ⇄ Router ⇄ Internet ⇄ Server
 
 <section>
   <h2>🎮 Internet Trivia Game</h2>
-  <p>Test your knowledge about the internet, cloud computing, and data transmission. Answer questions correctly to improve your score and learn fun facts along the way!</p>
+
+  <p>Test your knowledge of the internet, cloud computing, and data transmission. Answer questions correctly to earn points and learn extra facts along the way. Challenge yourself and see how much you know!</p>
 
   <p id="question"></p>
   <button onclick="answerQuestion(0)" id="btn1"></button>
