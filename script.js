@@ -1,57 +1,45 @@
-/* ===== INTERNET TECHNOLOGY EXPLANATIONS ===== */
+/* INTERNET TECHNOLOGY */
 
 function showDNS() {
   document.getElementById("internetOutput").innerText =
-    "DNS (Domain Name System) converts website names like www.google.com into IP addresses so computers can locate servers.";
+    "DNS translates website names into IP addresses so computers can find servers.";
 }
 
 function showBroadband() {
   document.getElementById("internetOutput").innerText =
-    "Broadband is a high-speed internet connection such as fiber or cable that allows fast data transfer.";
+    "Broadband is a high-speed internet connection such as fiber or cable.";
 }
 
 function showPacket() {
   document.getElementById("internetOutput").innerText =
-    "When you open a website, data packets travel from your browser to routers, then to the server, and back.";
+    "Data travels in packets from your browser through routers to the server.";
 }
 
-/* ===== CLOUD COMPUTING ===== */
+/* CLOUD COMPUTING */
 
 function showCloud() {
   document.getElementById("cloudOutput").innerText =
-    "Cloud storage saves data on remote servers accessed through the internet, unlike traditional local storage.";
+    "Cloud storage saves data on remote servers accessed via the internet.";
 }
 
 function showClientServer() {
   document.getElementById("cloudOutput").innerText =
-    "The client is your browser, while the server is a cloud computer that processes requests and sends responses.";
+    "The client is your browser; the server is a cloud computer that responds to requests.";
 }
 
-/* ===== DATA TRANSMISSION ===== */
+/* DATA TRANSMISSION */
 
 function showDuplex() {
   document.getElementById("dataOutput").innerText =
-    "Full-duplex communication allows sending and receiving data at the same time, like video calls.";
+    "Full-duplex communication allows sending and receiving data at the same time.";
 }
 
 function showErrorCheck() {
   document.getElementById("dataOutput").innerText =
-    "Error checking methods like checksums ensure data is not corrupted during transmission.";
+    "Error checking methods like checksums ensure data is not corrupted.";
 }
 
-/* ===== ERROR CHECKING SIMULATION ===== */
-
-function sendData() {
-  let data = document.getElementById("dataInput").value;
-
-  if (data === "") {
-    alert("Error: No data entered!");
-  } else {
-    alert("Data sent successfully with no errors!");
-  }
-}
-
-/* ===== MINI-GAME: MULTI QUESTION TRIVIA ===== */
+/* MINI-GAME */
 
 let questions = [
   {
@@ -60,31 +48,29 @@ let questions = [
     correct: 1
   },
   {
-    q: "Which is an example of cloud storage?",
-    a: ["USB drive", "Hard disk", "Google Drive"],
+    q: "Which is cloud storage?",
+    a: ["USB", "Hard disk", "Google Drive"],
     correct: 2
   },
   {
-    q: "What type of transmission allows two-way communication?",
+    q: "Which transmission allows two-way communication?",
     a: ["Simplex", "Half-duplex", "Full-duplex"],
     correct: 2
   }
 ];
 
-let currentQuestion = 0;
+let current = 0;
 let score = 0;
 
 function loadQuestion() {
-  document.getElementById("question").innerText =
-    questions[currentQuestion].q;
-
-  document.getElementById("a1").innerText = questions[currentQuestion].a[0];
-  document.getElementById("a2").innerText = questions[currentQuestion].a[1];
-  document.getElementById("a3").innerText = questions[currentQuestion].a[2];
+  document.getElementById("question").innerText = questions[current].q;
+  document.getElementById("btn1").innerText = questions[current].a[0];
+  document.getElementById("btn2").innerText = questions[current].a[1];
+  document.getElementById("btn3").innerText = questions[current].a[2];
 }
 
 function answerQuestion(choice) {
-  if (choice === questions[currentQuestion].correct) {
+  if (choice === questions[current].correct) {
     score++;
     document.getElementById("gameFeedback").innerText = "✅ Correct!";
   } else {
@@ -92,9 +78,9 @@ function answerQuestion(choice) {
   }
 
   document.getElementById("score").innerText = score;
-  currentQuestion++;
+  current++;
 
-  if (currentQuestion < questions.length) {
+  if (current < questions.length) {
     loadQuestion();
   } else {
     document.getElementById("question").innerText =
